@@ -1,0 +1,51 @@
+
+{% extends 'layout.html' %}
+
+{% block title %} Detalles del tipo de documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex bd-highlight mb-3 align-items-center">
+                    <div class="me-auto bd-highlight align-self-end p">
+                        <h3 class="title-card">Datos del Instructor</h3>
+                    </div>
+                
+                    <div class="bd-highlight">
+                        <a href="/users/" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar al listado</a>
+                    </div>
+                </div> 
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Id</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{User.name}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Nombre</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{User.phone}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Direccion</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{User.address}}" disabled>
+                </div>
+              
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Userio</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{User.username}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Contraseña</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{User.password}}" disabled>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

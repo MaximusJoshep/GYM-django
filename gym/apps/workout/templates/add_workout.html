@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %} Añade un instructor {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos de la rutina</h3>
+            <div class="card-body">
+                {% if Workout %}  
+                <form action="/workouts/modify/{{Workout.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="workout_name" id="floatingInput" placeholder="Nombres" value="{{Workout.workout_name}}">
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="description" id="floatingInput" placeholder="description" value="{{Workout.description}}">
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+                   
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+                 <form action="/workouts/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="workout_name" id="floatingInput" placeholder="Nombres" >
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="description" id="floatingInput" placeholder="phone">
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+            
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

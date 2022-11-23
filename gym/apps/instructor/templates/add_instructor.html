@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %} Añade un instructor {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del instrcutor</h3>
+            <div class="card-body">
+                {% if Instructor %}  
+                <form action="/instructors/modify/{{Instructor.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="instructor_name" id="floatingInput" placeholder="Nombres" value="{{Instructor.instructor_name}}">
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="phone" id="floatingInput" placeholder="phone" value="{{Instructor.phone}}">
+                        <label for="floatingInput">Telefono</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="address" id="floatingInput" placeholder="address" value="{{Instructor.address}}">
+                        <label for="floatingInput">Direccion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" value="{{Instructor.email}}">
+                        <label for="floatingInput">Correo</label>
+                    </div>
+               
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+                 <form action="/instructors/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="instructor_name" id="floatingInput" placeholder="Nombres" >
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="phone" id="floatingInput" placeholder="phone">
+                        <label for="floatingInput">Telefono</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="address" id="floatingInput" placeholder="address" >
+                        <label for="floatingInput">Direccion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" >
+                        <label for="floatingInput">Correo</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
